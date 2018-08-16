@@ -4,8 +4,10 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v7.app.AlertDialog
 import android.text.TextUtils
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -32,6 +34,7 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.porto.curhat.R
+import kotlinx.android.synthetic.main.reset_pass_dialog.view.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -200,6 +203,15 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
          return valid
     }
 
+    private fun sendpasswordReset(email: String){
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener {
+                    if (it.isSuccessful){
+                        Toast.makeText(applicationContext, "Email sent.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+    }
+
     fun signOut(){
         mAuth.signOut()
         LoginManager.getInstance().logOut()
@@ -207,8 +219,22 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         val i = v.id
-        if (i == R.id.sign_in_button) { signInGoogle() }
-        else if (i == R.id.btnSignIn) { signInEmail(etEmail.text.toString(), etPassword.text.toString()) }
+        if (i == R.id.sign_in_button) {
+            signInGoogle()
+        } else if (i == R.id.btnSignIn) {
+            signInEmail(etEmail.text.toString(), etPassword.text.toString())
+        } else if (i == R.id.tvForgetPassword) {
+            val mDialogView = LayoutInflater.from(this).inflate(R.layout.reset_pass_dialog, null)
+            val mBuilder = AlertDialog.Builder(this)
+                    .setView(mDialogView)
+                    .setTitle("Reset Password")
+            val mAlertDialog = mBuilder.show()
+            mDialogView.btnResetPass.setOnClickListener{
+                mAlertDialog.dismiss()
+                val email = mDialogView.etEmail.text.toString()
+                sendpasswordReset(email)
+            }
+        }
     }
 
 }
