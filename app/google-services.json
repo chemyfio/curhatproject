@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "289221254941",
+    "firebase_url": "https://curhatproject.firebaseio.com",
+    "project_id": "curhatproject",
+    "storage_bucket": "curhatproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289221254941:android:eeeb0f82324ee880",
+        "android_client_info": {
+          "package_name": "com.porto.curhat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289221254941-svmj6877i975dqsc8ucnovtfeua10ja7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.porto.curhat",
+            "certificate_hash": "d23f9758c8999bbc994afe6501d797a9cb5467aa"
+          }
+        },
+        {
+          "client_id": "289221254941-36c9tf0b21gfmq1esobf7md7o4lbnprs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.porto.curhat",
+            "certificate_hash": "ecee01edd5403678248c6cf2489f0823a80d7b25"
+          }
+        },
+        {
+          "client_id": "289221254941-hosma2k13n2mrfqlepilrdsqggt5oihu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAS-Noo-GUwTNaswaDWuB3zBqx2a5mno_M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289221254941-hosma2k13n2mrfqlepilrdsqggt5oihu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
